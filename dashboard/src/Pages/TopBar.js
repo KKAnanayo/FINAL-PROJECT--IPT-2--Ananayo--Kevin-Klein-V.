@@ -14,7 +14,7 @@ function TopBar() {
     <div className="topbar">
       <div className="left">
         {/* Your restaurant logo */}
-        <Link to="/dashboard">
+        <Link to="/menu">
           <img className="logo" src={logo} alt="Restaurant Logo" />
         </Link>
       </div>
