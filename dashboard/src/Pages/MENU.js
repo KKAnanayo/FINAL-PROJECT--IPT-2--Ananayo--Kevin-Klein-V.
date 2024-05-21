@@ -1,7 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Button, Dialog, DialogActions, DialogContent, DialogTitle } from "@mui/material";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import {
+  Button,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogTitle,
+} from "@mui/material";
 import "./MENU.css";
+import { Padding } from "@mui/icons-material";
 
 function MENU() {
   const navigate = useNavigate();
@@ -9,12 +16,12 @@ function MENU() {
   const [selectedDish, setSelectedDish] = useState(null); // State to store the selected dish
 
   useEffect(() => {
-    const storedAdmin = localStorage.getItem('adminID');
+    const storedAdmin = localStorage.getItem("adminID");
     const currentPath = window.location.pathname;
 
     // If there's an adminID and not on the admin page, redirect to admin
-    if (storedAdmin && window.location.pathname !== '/admin') {
-      navigate('/admin');
+    if (storedAdmin && window.location.pathname !== "/admin") {
+      navigate("/admin");
     }
     getImage();
   }, [navigate]);
@@ -47,37 +54,40 @@ function MENU() {
         {allImage.map((data, index) => {
           const imageUrl = `data:image/jpeg;base64,${data.image}`;
           return (
-            <div key={index} className="image-item">
+            <div
+              key={index}
+              className="image-item"
+              onClick={() => handleViewDetails(data)}
+            >
               <img src={imageUrl} alt={`Image ${index}`} />
-              <div className="image-text">{data.Name}</div>
+              <div className="image-text">
+                <b>{data.Name}</b>
+              </div>
               <div className="image-text">₱&nbsp;{data.Price}</div>
-              <Button variant="contained" onClick={() => handleViewDetails(data)}>
-                View Dish Details
-              </Button>
             </div>
           );
         })}
       </div>
       <Dialog open={!!selectedDish} onClose={handleCloseDialog}>
-  <DialogTitle>{selectedDish && selectedDish.Name}</DialogTitle>
-  <DialogContent>
-    {selectedDish && (
-      <>
-        <img 
-          src={`data:image/jpeg;base64,${selectedDish.image}`} 
-          alt={selectedDish.Name} 
-          style={{ width: '200px', height: '200px' }} 
-        />
-        <div>{selectedDish.Description}</div>
-      </>
-    )}
-  </DialogContent>
-  <DialogActions>
-    <Button onClick={handleCloseDialog} color="primary">
-      Close
-    </Button>
-  </DialogActions>
-</Dialog>
+        <DialogTitle ><b>{selectedDish && selectedDish.Name}</b></DialogTitle><br/>
+        <DialogContent>
+          {selectedDish && (
+            <>
+              <img
+                src={`data:image/jpeg;base64,${selectedDish.image}`}
+                alt={selectedDish.Name}
+                style={{ width: "200px", height: "200px", borderRadius: "10px"}}
+              />
+              <div>{selectedDish.Description}</div>
+            </>
+          )}
+        </DialogContent>
+        <DialogActions>
+          <Button variant="contained" onClick={handleCloseDialog} color="primary">
+            Close
+          </Button>
+        </DialogActions>
+      </Dialog>
     </div>
   );
 }

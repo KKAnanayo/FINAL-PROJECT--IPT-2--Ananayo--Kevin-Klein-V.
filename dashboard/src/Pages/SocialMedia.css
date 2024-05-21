@@ -31,7 +31,7 @@
   border: 1px solid #ddd;
   padding: 20px;
   border-radius: 5px;
-  background-color: #f9f9f9;
+  background-color: #f5f5f7;
   transition: background-color 0.3s ease;
   width: 450px; /* Fixed width for uniformity */
   height: 450px; /* Fixed height for uniformity */
@@ -41,11 +41,10 @@
   justify-content: space-between; /* Ensure spacing between items */
   align-items: center; /* Center align items horizontally */
   text-align: center;
-  margin-top: 10vh;
 }
 
 .social-box:hover {
-  background-color: #e0e0e0;
+  background-color: #e2e2e2;
 }
 
 .social-box h4 {

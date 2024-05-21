@@ -94,6 +94,27 @@ app.delete("/delete-image/:id", async (req, res) => {
     res.status(500).send({ status: "error", message: error.message });
   }
 });
+app.put("/update-image/:id", async (req, res) => {
+  const { id } = req.params;
+  const { name, price, description } = req.body;
+
+  try {
+    const updatedImageDetails = await ImageDetails.findByIdAndUpdate(
+      id,
+      { Name: name, Price: price, Description: description },
+      { new: true }
+    );
+
+    if (updatedImageDetails) {
+      res.send({ status: "ok", message: "MenuItems updated successfully" });
+    } else {
+      res.status(404).send({ status: "error", message: "MenuItems not found" });
+    }
+  } catch (error) {
+    console.error("Error updating MenuItems:", error);
+    res.status(500).send({ status: "error", message: error.message });
+  }
+});
 
 const PORT = 1337;
 app.listen(PORT, () => {

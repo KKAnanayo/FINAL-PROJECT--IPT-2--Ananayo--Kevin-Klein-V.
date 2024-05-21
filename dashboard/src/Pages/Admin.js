@@ -1,6 +1,14 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { Button, TextField, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from "@mui/material";
+import {
+  Button,
+  TextField,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+} from "@mui/material";
 import "./Admin.css";
 
 function Admin() {
@@ -121,13 +129,20 @@ function Admin() {
 
   const updateImage = async () => {
     try {
-      const response = await fetch(`http://localhost:1337/update-image/${editId}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ name: editName, price: editPrice, description: editDescription }), // Include description in the update
-      });
+      const response = await fetch(
+        `http://localhost:1337/update-image/${editId}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: editName,
+            price: editPrice,
+            description: editDescription,
+          }), // Include description in the update
+        }
+      );
       const data = await response.json();
       if (data.status === "ok") {
         getImage(); // Update images after updating
@@ -144,7 +159,7 @@ function Admin() {
     <div className="main">
       <h3>Admin</h3>
       <div className="input-container">
-        <div>
+        <div className="fieldBox">
           <input
             ref={fileInputRef} // Attach ref to the file input
             accept="image/jpeg,image/png"
@@ -159,8 +174,6 @@ function Admin() {
               alt="Uploaded"
             />
           )}
-        </div>
-        <div>
           <TextField
             className="text-field"
             type="text"
@@ -210,15 +223,32 @@ function Admin() {
           return (
             <div key={index} className="image-item">
               <img src={imageUrl} alt={`Image ${index}`} />
-              <div className="image-text">{data.Name}</div>
+              <div className="image-text">
+                <b>{data.Name}</b>
+              </div>
               <div className="image-text">₱&nbsp;{data.Price}</div>
-              <Button variant="contained" onClick={() => openEditDialog(data._id, data.Name, data.Price, data.Description)}>
-                Edit
-              </Button>
-              &nbsp;
-              <Button variant="contained" color="secondary" onClick={() => openDeleteDialog(data._id)}>
-                Delete
-              </Button>
+              <div className="buttons">
+                <Button
+                  variant="contained"
+                  onClick={() =>
+                    openEditDialog(
+                      data._id,
+                      data.Name,
+                      data.Price,
+                      data.Description
+                    )
+                  }
+                >
+                  Edit
+                </Button>
+                <Button
+                  variant="contained"
+                  color="secondary"
+                  onClick={() => openDeleteDialog(data._id)}
+                >
+                  Delete
+                </Button>
+              </div>
             </div>
           );
         })}
@@ -271,7 +301,6 @@ function Admin() {
         <DialogContent>
           <DialogContentText>
             Are you sure you want to delete this Dish?
-
           </DialogContentText>
         </DialogContent>
         <DialogActions>
