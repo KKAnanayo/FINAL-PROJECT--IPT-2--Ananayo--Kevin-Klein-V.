@@ -1,0 +1,79 @@
+.topbar {
+  display: flex;
+  flex-direction: row; /* Change to row for a top bar */
+  height: 100px; /* Set the height to your desired top bar height */
+  width: 100%; /* Occupy full width of the viewport */
+  position: fixed; /* Fix the position to make it stay at the top */
+  top: 0;
+  background-color: #d1c090;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adjust the box-shadow */
+  align-items: center; /* Align items to the center vertically */
+  justify-content: center; /* Center items horizontally */
+  z-index: 1000; /* Ensure it's above other content */
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  margin-right: 50%;
+}
+
+.logo-container {
+  max-width: 200px; /* Set max width for the logo container */
+}
+
+.logo {
+  width: 50%; /* Make the image take full width of the container */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.right {
+  display: flex;
+  align-items: center;
+}
+
+.right .link {
+  margin-right: 20px; /* Adjust margin to push the links */
+  text-decoration: none;
+  color: white; /* Adjust link color as needed */
+  font-size: 25px;
+}
+
+.right .link:hover {
+  color: #ffd700; /* Change link color on hover */
+}
+
+/* Dropdown styles */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  z-index: 1;
+  top: 100%;
+  left: 0;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-link {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: #333;
+  border-bottom: 1px solid #ccc;
+}
+
+.dropdown-link:hover {
+  background-color: #ddd;
+}
