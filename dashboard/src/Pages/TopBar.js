@@ -6,6 +6,7 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 import InfoIcon from '@mui/icons-material/Info';
 import SupervisorAccountIcon from '@mui/icons-material/SupervisorAccount';
 import logo from "./9202_1715092898773363_598104470283525789_n-transformed.png";
+import TagIcon from '@mui/icons-material/Tag';
 import "./TopBar.css";
 
 function TopBar() {
@@ -43,6 +44,12 @@ function TopBar() {
             <div style={{ display: "flex", alignItems: "center" }}>
                 <InfoIcon sx={{ fontSize: 20, marginRight: 1 }} />
                 <span>About</span>
+              </div>
+            </Link>
+            <Link to="/socialmedia" className="dropdown-link">
+            <div style={{ display: "flex", alignItems: "center" }}>
+                <TagIcon sx={{ fontSize: 20, marginRight: 1 }} />
+                <span>Social Media</span>
               </div>
             </Link>
             <Link to="/dashboard" className="dropdown-link">

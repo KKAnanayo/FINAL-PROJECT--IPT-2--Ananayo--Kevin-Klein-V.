@@ -1,0 +1,69 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  padding-top: 120px; 
+}
+.Social-Title{
+  margin-top: 10vh;
+}
+
+.link {
+  margin-right: 20px; /* Adjust margin to push the links */
+  text-decoration: none;
+  color: rgb(0, 0, 0); /* Adjust link color as needed */
+  font-size: 25px;
+  display: flex;
+  flex-direction: column; /* Arrange icon and text in a column */
+  align-items: center; /* Center align items horizontally */
+  text-align: center; /* Center text */
+}
+
+.social-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.social-box {
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  transition: background-color 0.3s ease;
+  width: 450px; /* Fixed width for uniformity */
+  height: 450px; /* Fixed height for uniformity */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Ensure spacing between items */
+  align-items: center; /* Center align items horizontally */
+  text-align: center;
+  margin-top: 10vh;
+}
+
+.social-box:hover {
+  background-color: #e0e0e0;
+}
+
+.social-box h4 {
+  margin: 10px 0;
+}
+
+.social-box p {
+  margin: 5px 0;
+}
+
+.social-image {
+  width: 100px; /* Adjust the size as needed */
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.click-here {
+  font-weight: bold;
+  color: blue; /* Adjust color as needed */
+  cursor: pointer;
+}

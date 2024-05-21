@@ -51,7 +51,7 @@ app.get("/viewAdmin", async (req, res) => {
 });
 
 app.post("/upload-image", upload.single('file'), async (req, res) => {
-  const { name, price } = req.body;
+  const { name, price, description} = req.body;
   const { buffer, mimetype } = req.file;
 
   try {
@@ -62,7 +62,7 @@ app.post("/upload-image", upload.single('file'), async (req, res) => {
       .toBuffer();
 
     const base64String = compressedImage.toString('base64');
-    await ImageDetails.create({ image: base64String, Name: name, Price: price });
+    await ImageDetails.create({ image: base64String, Name: name, Price: price, Description: description });
     res.send({ Status: "ok" });
   } catch (error) {
     console.error("Error uploading image:", error);

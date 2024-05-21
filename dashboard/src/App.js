@@ -6,6 +6,7 @@ import MENU from './Pages/MENU';
 import About from './Pages/About';
 import TopBar from './Pages/TopBar';
 import Admin from './Pages/Admin';
+import SocialMedia from './Pages/SocialMedia';
 import './App.css';
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <Routes>
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/menu" element={<MENU />} />
+          <Route path="/socialmedia" element={<SocialMedia />} />
           <Route path="/about" element={<About />} />
           <Route path="/Location" element={<Location />} />
           <Route path="/admin" element={<Admin />} />
